@@ -2,7 +2,7 @@ package com.iy.photos_mvvm.di.components
 
 import com.iy.photos_mvvm.di.modules.NetworkModule
 import com.iy.photos_mvvm.ui.photos.PhotosItemViewModel
-import com.iy.photos_mvvm.ui.photos.PhotosListViewModel
+import com.iy.photos_mvvm.ui.photos.MainActivityViewModel
 import dagger.Component
 import javax.inject.Singleton
 
@@ -11,7 +11,7 @@ import javax.inject.Singleton
 interface ViewModelInjector {
 
     fun inject(photosItemViewModel: PhotosItemViewModel)
-    fun inject(photosListViewModel: PhotosListViewModel)
+    fun inject(mainActivityViewModel: MainActivityViewModel)
 
     @Component.Builder
     interface Builder {

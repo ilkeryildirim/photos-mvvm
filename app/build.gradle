@@ -4,6 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+    compileOptions {
+        targetCompatibility = "8"
+        sourceCompatibility = "8"
+    }
     compileSdkVersion 28
 
     dataBinding {
@@ -52,15 +57,8 @@ dependencies {
     // RecyclerView
     implementation "com.android.support:recyclerview-v7:$android_support_version"
 
-    // Constraint Layout
-    implementation "com.android.support.constraint:constraint-layout:1.1.3"
-
     // LiveData & ViewModel
     implementation"android.arch.lifecycle:extensions:$lifecycle_version"
-
-    // Room
-    implementation "android.arch.persistence.room:runtime:$room_version"
-    kapt "android.arch.persistence.room:compiler:$room_version"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -73,10 +71,11 @@ dependencies {
     compileOnly "org.glassfish:javax.annotation:3.1.1"
 
     //Rx
-    implementation "io.reactivex.rxjava2:rxjava:2.2.0"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.5'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 
-    //OkHttp
-    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    //Okhttp
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.1'
 }
