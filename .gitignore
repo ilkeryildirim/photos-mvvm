@@ -22,3 +22,5 @@ Java.gitignore
 .gradle/5.4.1/executionHistory/executionHistory.lock
 .gradle/5.4.1/executionHistory/executionHistory.bin
 .idea/workspace.xml
+*.lock
+*.bin

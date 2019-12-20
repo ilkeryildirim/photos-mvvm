@@ -1,8 +1,11 @@
 package com.iy.photos_mvvm.ui.photos
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
-import androidx.annotation.StringRes
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -12,7 +15,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.iy.photos_mvvm.R
 import com.iy.photos_mvvm.databinding.ActivityMainBinding
 import com.iy.photos_mvvm.di.ViewModelFactory
-import com.iy.photos_mvvm.utils.ProgressDialogUtil
 
 
 class MainActivity : AppCompatActivity() {
@@ -20,15 +22,16 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainActivityViewModel
-    private lateinit var dialogUtil: ProgressDialogUtil
+    lateinit var mProgressDialog: Dialog
     private var errorSnackbar: Snackbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dialogUtil = ProgressDialogUtil(this)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProviders.of(this, ViewModelFactory(this))
             .get(MainActivityViewModel::class.java)
+
         binding.viewModel = viewModel
         binding.rvPhotos.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -44,11 +47,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun hideLoading() {
-        dialogUtil.dismiss()
+        mProgressDialog.dismiss()
     }
 
     private fun showLoading() {
-        dialogUtil.show()
+        mProgressDialog = Dialog(this)
+        mProgressDialog.apply {
+            window?.let {
+                it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                it.requestFeature(Window.FEATURE_NO_TITLE)
+            }
+            setContentView(R.layout.progress_dialog)
+            setCancelable(true)
+            setCanceledOnTouchOutside(false)
+        }.show()
+
     }
 
     private fun showError(errorMessage: String) {
