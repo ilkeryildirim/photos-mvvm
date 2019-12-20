@@ -14,8 +14,9 @@ abstract class BaseViewModel : ViewModel() {
         .networkModule(NetworkModule)
         .build()
 
-    init {
 
+
+    init {
         inject()
     }
 

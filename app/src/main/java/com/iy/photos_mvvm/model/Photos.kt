@@ -1,4 +1,4 @@
-package com.iy.photosMVVM.model
+package com.iy.photos_mvvm.model
 
 data class Photos(
     var author: String,

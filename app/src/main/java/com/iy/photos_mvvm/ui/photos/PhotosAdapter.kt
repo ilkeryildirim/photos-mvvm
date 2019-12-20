@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 
-import com.iy.photosMVVM.model.Photos
+import com.iy.photos_mvvm.model.Photos
 import com.iy.photos_mvvm.R
 import com.iy.photos_mvvm.databinding.ItemPhotosRowBinding
 
@@ -34,9 +34,10 @@ class PhotosAdapter: RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
     class ViewHolder(private val binding: ItemPhotosRowBinding): RecyclerView.ViewHolder(binding.root){
         private val viewModel = PhotosItemViewModel()
 
-        fun bind(photos:Photos){
-            viewModel.bind(photos)
+        fun bind(photos: Photos){
+            viewModel.bind(photos,binding)
             binding.viewModel = viewModel
+
         }
     }
 }
