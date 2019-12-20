@@ -1,2 +1,2 @@
 # photos-mvvm
-![SS](../../art/art.PNG)
+![SS](https://github.com/ilkeryildirim/photos-mvvm/blob/master/art/art.PNG)
