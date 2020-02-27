@@ -2,7 +2,7 @@
 ![SS](https://github.com/ilkeryildirim/photos-mvvm/blob/master/art/art.PNG)
 
 
-## Libraries and tools 🛠
+## Libraries and tools 
 
 
 <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel">ViewModel</a></li>
